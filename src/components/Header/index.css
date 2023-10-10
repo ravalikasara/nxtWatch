@@ -1,0 +1,48 @@
+.profile {
+  margin: 0px;
+  margin-top: 2px;
+  height: 30px;
+  width: 30px;
+}
+.theme {
+  height: 25px;
+  width: 25px;
+  margin-right: 2px;
+}
+.model {
+  background-color: white;
+  border-radius: 10px;
+  height: 300px;
+  width: 500px;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.confirm {
+  height: 40px;
+  width: 100px;
+  background-color: #3b82f6;
+  margin-top: 20px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+}
+
+.cancel {
+  height: 40px;
+
+  width: 100px;
+  color: #94a3b8;
+  border: 2px solid #94a3b8;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: transparent;
+}
+.link {
+  display: flex;
+  text-decoration: none;
+}
