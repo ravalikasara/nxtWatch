@@ -1,0 +1,24 @@
+.no-video-bg {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.p {
+  color: #7e858e;
+  margin-left: 20px;
+}
+.no-video-img {
+  height: 400px;
+  width: 400px;
+}
+.videos {
+  list-style-type: none;
+  margin: 20px;
+  display: flex;
+}
+.saved-img {
+  height: 200px;
+  width: 300px;
+  border-radius: 20px;
+}

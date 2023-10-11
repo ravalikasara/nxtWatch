@@ -1,7 +1,9 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import {formatDistanceToNow, formatDistance} from 'date-fns'
+import {formatDistanceToNow} from 'date-fns'
 import Loader from 'react-loader-spinner'
+import {Link} from 'react-router-dom'
+
 import {AiOutlineClose, AiOutlineSearch} from 'react-icons/ai'
 import BackgroundTheme from '../BackgroundTheme'
 import Header from '../Header'
@@ -35,6 +37,7 @@ class Home extends Component {
 
   getData = async () => {
     const {search} = this.state
+    console.log(search)
     const jwtToken = Cookies.get('jwt_token')
 
     this.setState({status: 'LOADING'})
@@ -83,6 +86,25 @@ class Home extends Component {
 
   Success = Light => {
     const {videosList} = this.state
+    if (videosList.length === 0) {
+      return (
+        <div className="failure-container">
+          <img
+            className="failure-img"
+            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+            alt="no videos"
+          />
+
+          <FailureHeading Light={Light}>No Search results found</FailureHeading>
+          <FailurePara Light={Light}>
+            Try different key words or remove search filter
+          </FailurePara>
+          <div className="retry-container">
+            <RetryButton onClick={this.getData}>Retry</RetryButton>
+          </div>
+        </div>
+      )
+    }
 
     return (
       <div>
@@ -128,17 +150,19 @@ class Home extends Component {
     const {name} = channel
     return (
       <li className="item" key={each.id}>
-        <img className="img" src={each.thumbnailUrl} alt="thumbnail url" />
-        <div className="video-details-card">
-          <img className="profile" src={profileUrl} alt={name} />
-          <div>
-            <Title Light={Light}>{each.title}</Title>
-            <p className="name">{name}</p>
-            <p className="name">
-              {each.viewCount} views {dats} ago
-            </p>
+        <Link className="linksssss" to={`videos/${each.id}`}>
+          <img className="img" src={each.thumbnailUrl} alt="thumbnail url" />
+          <div className="video-details-card">
+            <img className="profile" src={profileUrl} alt={name} />
+            <div>
+              <Title Light={Light}>{each.title}</Title>
+              <p className="name">{name}</p>
+              <p className="name">
+                {each.viewCount} views {dats} ago
+              </p>
+            </div>
           </div>
-        </div>
+        </Link>
       </li>
     )
   }
@@ -180,7 +204,11 @@ class Home extends Component {
                         Light={isLightBackgroundTheme}
                         type="search"
                       />
-                      <button type="button" className="home-search">
+                      <button
+                        type="button"
+                        onClick={this.getData}
+                        className="home-search"
+                      >
                         <AiOutlineSearch />
                       </button>
                     </SearchInputDiv>

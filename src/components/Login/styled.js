@@ -50,7 +50,7 @@ export const LoginButton = styled.button`
   background-color: #3b82f6;
   margin-top: 20px;
   border-radius: 5px;
-  color: white;
+  color: #ffffff;
   border: none;
 `
 

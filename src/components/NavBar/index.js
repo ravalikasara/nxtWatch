@@ -64,7 +64,7 @@ class NavBar extends Component {
                   value="Trending"
                   className="lists"
                 >
-                  <Link className="link" to="/">
+                  <Link className="link" to="/trending">
                     <Logo
                       Light={isLightBackgroundTheme}
                       activeRoute={activeRoute}
@@ -84,7 +84,7 @@ class NavBar extends Component {
                   value="Gaming"
                   className="lists"
                 >
-                  <Link className="link" to="/">
+                  <Link className="link" to="/gamings">
                     <Logo
                       Light={isLightBackgroundTheme}
                       activeRoute={activeRoute}
@@ -102,7 +102,7 @@ class NavBar extends Component {
                   value="Saved Videos"
                   className="lists"
                 >
-                  <Link className="link" to="/">
+                  <Link className="link" to="/saved-videos">
                     <Logo
                       activeRoute={activeRoute}
                       Light={isLightBackgroundTheme}

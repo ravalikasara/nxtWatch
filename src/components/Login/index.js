@@ -78,14 +78,16 @@ class Login extends Component {
           </LoginLogoCard>
 
           <LoginForm onSubmit={this.getUser}>
-            <LoginLabel>USERNAME</LoginLabel>
+            <LoginLabel htmlFor="username">USERNAME</LoginLabel>
             <LoginInput
               type="text"
+              id="username"
               value={username}
               onChange={this.onUsernameChange}
             />
-            <LoginLabel>PASSWORD</LoginLabel>
+            <LoginLabel htmlFor="password">PASSWORD</LoginLabel>
             <LoginInput
+             id="password"
               value={password}
               onChange={this.onPasswordChange}
               type={showPassword ? 'text' : 'password'}
