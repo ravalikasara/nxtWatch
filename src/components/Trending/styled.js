@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
-export const HomeBgContainer = styled.div`
+export const TrendingBgContainer = styled.div`
   display: flex;
 `
 
-export const Homemain = styled.div`
+export const Trendingmain = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: ${props => (props.Light ? '#f1f1f1' : '#0f0f0f')};
 `
 
 export const Logo = styled.img`
@@ -14,10 +15,10 @@ export const Logo = styled.img`
   width: 140px;
 `
 
-export const HomePageContainer = styled.div`
+export const TrendingPageContainer = styled.div`
   padding: 20px;
 
-  background-color: ${props => (props.Light ? '#f1f1f1' : '#181818')};
+  background-color: ${props => (props.Light ? '#f1f1f1' : '#0f0f0f')};
 `
 
 export const VideoStatusContainer = styled.div`

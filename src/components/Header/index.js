@@ -46,17 +46,18 @@ class Header extends Component {
                 {isLightBackgroundTheme ? (
                   <HeaderLogo
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                    alt="nxt watch logo"
+                    alt="website logo"
                   />
                 ) : (
                   <HeaderLogo
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
-                    alt="nxt watch logo"
+                    alt="website logo"
                   />
                 )}
               </Link>
               <HeaderRightIconsCard>
                 <HeaderThemeButton
+                  data-testid="theme"
                   Lighttheme={isLightBackgroundTheme}
                   onClick={onTheme}
                   type="button"
@@ -77,9 +78,10 @@ class Header extends Component {
                 <Popup modal trigger={<LogOut>LogOut</LogOut>}>
                   {close => (
                     <div className="model">
-                      <p>Are you sure you want to logout</p>
+                      <p>Are you sure, you want to logout</p>
                       <HeaderRightIconsCard>
                         <button
+                          data-testid="close"
                           className="cancel"
                           type="button"
                           onClick={() => close()}

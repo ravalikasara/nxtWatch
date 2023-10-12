@@ -25,6 +25,7 @@ class SavedVideos extends Component {
   getNoVideos = isLightBackgroundTheme => (
     <div className="no-video-bg">
       <img
+        alt="no saved videos"
         className="no-video-img"
         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
       />
@@ -46,13 +47,11 @@ class SavedVideos extends Component {
         <Link className="link" to={`/videos/${each.id}`}>
           <img
             src={each.thumbnailUrl}
-            alt="thumbnail url"
+            alt="video thumbnail"
             className="saved-img"
           />
           <div>
-            <SavedLogoTitle Light={isLightBackgroundTheme}>
-              {each.title}
-            </SavedLogoTitle>
+            <p>{each.title}</p>
 
             <p className="p">{channel.name}</p>
             <p className="p">
@@ -91,12 +90,11 @@ class SavedVideos extends Component {
                           Saved Videos
                         </SavedLogoTitle>
                       </SavedTitleBg>
-                      <u1>
-                        {' '}
+                      <ul>
                         {savedList.map(each =>
                           this.getSavedVideo(each, isLightBackgroundTheme),
                         )}
-                      </u1>
+                      </ul>
                     </>
                   ) : (
                     this.getNoVideos(isLightBackgroundTheme)

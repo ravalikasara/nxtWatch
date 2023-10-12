@@ -100,7 +100,7 @@ class Home extends Component {
             Try different key words or remove search filter
           </FailurePara>
           <div className="retry-container">
-            <RetryButton onClick={this.getData}>Retry</RetryButton>
+            <RetryButton>Retry</RetryButton>
           </div>
         </div>
       )
@@ -130,7 +130,7 @@ class Home extends Component {
           alt="failure view"
         />
       )}
-      <FailureHeading Light={Light}>Oops Something Went Wrong</FailureHeading>
+      <FailureHeading Light={Light}>Oops! Something Went Wrong</FailureHeading>
       <FailurePara Light={Light}>
         We are having some trouble to complete your request.Please try again.
       </FailurePara>
@@ -151,15 +151,17 @@ class Home extends Component {
     return (
       <li className="item" key={each.id}>
         <Link className="linksssss" to={`videos/${each.id}`}>
-          <img className="img" src={each.thumbnailUrl} alt="thumbnail url" />
+          <img className="img" src={each.thumbnailUrl} alt="video thumbnail" />
+
           <div className="video-details-card">
-            <img className="profile" src={profileUrl} alt={name} />
+            <img className="profile" src={profileUrl} alt="channel logo" />
             <div>
               <Title Light={Light}>{each.title}</Title>
               <p className="name">{name}</p>
               <p className="name">
                 {each.viewCount} views {dats} ago
               </p>
+              <p>{each.description}</p>
             </div>
           </div>
         </Link>
@@ -180,17 +182,15 @@ class Home extends Component {
 
               <HomeBgContainer>
                 <NavBar />
-                <Homemain data-testid="home">
+                <Homemain Light={isLightBackgroundTheme} data-testid="home">
                   {showBanner ? (
-                    <HomeBanner>
+                    <HomeBanner data-testid="banner">
                       <div>
                         <Logo
                           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                          alt="nxt watch logo"
+                          alt="channel logo"
                         />
-                        <BannerText>
-                          Buy Nxt Watch Premium paid with UPI
-                        </BannerText>
+                        <p>Buy Nxt Watch Premium</p>
                         <BannerButton>GET IT NOW</BannerButton>
                       </div>
                       <AiOutlineClose onClick={this.removeBanner} />
@@ -205,6 +205,7 @@ class Home extends Component {
                         type="search"
                       />
                       <button
+                        data-testid="searchButton"
                         type="button"
                         onClick={this.getData}
                         className="home-search"

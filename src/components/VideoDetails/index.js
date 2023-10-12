@@ -128,10 +128,10 @@ class VideoDetails extends Component {
                 className="button"
               >
                 <AiOutlineLike />
+                <LikesText Color={likeColor} className="likes">
+                  Like
+                </LikesText>
               </LikesButton>
-              <LikesText Color={likeColor} className="likes">
-                Like
-              </LikesText>
             </div>
             <div className="details-profile">
               <LikesButton
@@ -140,10 +140,10 @@ class VideoDetails extends Component {
                 className="button"
               >
                 <AiOutlineDislike />
+                <LikesText Color={dislikeColor} className="likes">
+                  Dislike
+                </LikesText>
               </LikesButton>
-              <LikesText Color={dislikeColor} className="likes">
-                Dislike
-              </LikesText>
             </div>
             <div className="details-profile">
               <LikesButton
@@ -154,20 +154,21 @@ class VideoDetails extends Component {
                 className="button"
               >
                 <RiPlayListAddLine />
+                <LikesText Color={saveColor} className="likes">
+                  {saveStatus ? 'Saved' : 'Save'}
+                </LikesText>
               </LikesButton>
-              <LikesText Color={saveColor} className="likes">
-                {saveStatus ? 'Saved' : 'Save'}
-              </LikesText>
             </div>
           </div>
         </div>
         <Hr className="hr" />
         <div className="details-profile">
-          <img className="profile-img" src={profileImage} alt="profile url" />
+          <img className="profile-img" src={profileImage} alt="channel logo" />
           <div>
             <Title Light={Light}>{channel.name}</Title>
             <p className="name">{subscribersCount} subscribers</p>
           </div>
+          <p>{videosDetails.description}</p>
         </div>
       </div>
     )
@@ -188,13 +189,12 @@ class VideoDetails extends Component {
           alt="failure view"
         />
       )}
-      <FailureHeading Light={Light}>Oops Something Went Wrong</FailureHeading>
+      <FailureHeading Light={Light}>Oops! Something Went Wrong</FailureHeading>
       <FailurePara Light={Light}>
-        We are having some trouble to complete your request.Please try again.
+        We are having some trouble to complete your request. Please try again.
       </FailurePara>
-      <div className="retry-container">
-        <RetryButton onClick={this.getData}>Retry</RetryButton>
-      </div>
+
+      <RetryButton onClick={this.getData}>Retry</RetryButton>
     </div>
   )
 
@@ -219,7 +219,10 @@ class VideoDetails extends Component {
     if (saveColor === '#64748b') {
       newSaveColor = '#2563eb'
     }
-    this.setState({saveColor: newSaveColor})
+    this.setState(prev => ({
+      saveColor: newSaveColor,
+      saveStatus: !prev.saveStatus,
+    }))
     changeSavedList(videosDetails)
   }
 

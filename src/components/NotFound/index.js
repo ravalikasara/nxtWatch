@@ -41,7 +41,7 @@ class NotFound extends Component {
                     Page Not Found
                   </NotFoundHeading>
                   <NotFoundPara Light={isLightBackgroundTheme}>
-                    We are sorry, the page you requested could not be found
+                    we are sorry, the page you requested could not be found.
                   </NotFoundPara>
                 </NotFoundPageContainer>
               </NotFoundPageBgContainer>

@@ -62,7 +62,7 @@ export const RouteName = styled.p`
   }};
 `
 
-export const ContactUs = styled.h1`
+export const ContactUs = styled.p`
   font-size: 20px;
   align-self: center;
   color: ${props => (props.Light ? '#000' : '#fff')};

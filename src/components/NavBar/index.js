@@ -84,7 +84,7 @@ class NavBar extends Component {
                   value="Gaming"
                   className="lists"
                 >
-                  <Link className="link" to="/gamings">
+                  <Link className="link" to="/gaming">
                     <Logo
                       Light={isLightBackgroundTheme}
                       activeRoute={activeRoute}

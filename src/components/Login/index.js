@@ -87,7 +87,7 @@ class Login extends Component {
             />
             <LoginLabel htmlFor="password">PASSWORD</LoginLabel>
             <LoginInput
-             id="password"
+              id="password"
               value={password}
               onChange={this.onPasswordChange}
               type={showPassword ? 'text' : 'password'}

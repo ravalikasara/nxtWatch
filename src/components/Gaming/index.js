@@ -11,10 +11,10 @@ import NavBar from '../NavBar'
 
 import './index.css'
 import {
-  HomeBgContainer,
-  Homemain,
+  GameBgContainer,
+  Gamemain,
   Title,
-  HomePageContainer,
+  GamePageContainer,
   VideoStatusContainer,
   FailureHeading,
   FailurePara,
@@ -94,7 +94,7 @@ class Gaming extends Component {
           alt="failure view"
         />
       )}
-      <FailureHeading Light={Light}>Oops Something Went Wrong</FailureHeading>
+      <FailureHeading Light={Light}>Oops! Something Went Wrong</FailureHeading>
       <FailurePara Light={Light}>
         We are having some trouble to complete your request.Please try again.
       </FailurePara>
@@ -107,7 +107,7 @@ class Gaming extends Component {
   getItem = (each, Light) => (
     <li className="item" key={each.id}>
       <Link className="linkssss" to={`videos/${each.id}`}>
-        <img className="img" src={each.thumbnailUrl} alt="thumbnail url" />
+        <img className="img" src={each.thumbnailUrl} alt="video thumbnail" />
 
         <Title Light={Light}>{each.title}</Title>
         <Title Light={Light}>{each.viewCount} Watching Worldwide</Title>
@@ -126,10 +126,11 @@ class Gaming extends Component {
             <>
               <Header />
 
-              <HomeBgContainer>
+              <GameBgContainer>
                 <NavBar />
-                <Homemain data-testid="gaming">
-                  <HomePageContainer Light={isLightBackgroundTheme}>
+                <Gamemain Light={isLightBackgroundTheme} data-testid="gaming">
+                  <GamePageContainer Light={isLightBackgroundTheme}>
+                    <h1>Gaming</h1>
                     <VideoStatusContainer>
                       {(() => {
                         switch (status) {
@@ -144,9 +145,9 @@ class Gaming extends Component {
                         }
                       })()}
                     </VideoStatusContainer>
-                  </HomePageContainer>
-                </Homemain>
-              </HomeBgContainer>
+                  </GamePageContainer>
+                </Gamemain>
+              </GameBgContainer>
             </>
           )
         }}

@@ -7,6 +7,7 @@ export const HomeBgContainer = styled.div`
 export const Homemain = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: ${props => (props.Light ? '#f1f1f1' : '#181818')};
 `
 
 export const HomeBanner = styled.div`

@@ -14,11 +14,11 @@ import Header from '../Header'
 import NavBar from '../NavBar'
 
 import {
-  HomeBgContainer,
-  Homemain,
+  TrendingBgContainer,
+  Trendingmain,
   SavedLogoTitle,
   Title,
-  HomePageContainer,
+  TrendingPageContainer,
   VideoStatusContainer,
   FailureHeading,
   FailurePara,
@@ -107,13 +107,12 @@ class Trending extends Component {
           alt="failure view"
         />
       )}
-      <FailureHeading Light={Light}>Oops Something Went Wrong</FailureHeading>
+      <FailureHeading Light={Light}>Oops! Something Went Wrong</FailureHeading>
       <FailurePara Light={Light}>
         We are having some trouble to complete your request.Please try again.
       </FailurePara>
-      <div className="retry-container">
-        <RetryButton onClick={this.getData}>Retry</RetryButton>
-      </div>
+
+      <RetryButton onClick={this.getData}>Retry</RetryButton>
     </div>
   )
 
@@ -128,11 +127,11 @@ class Trending extends Component {
         <Link className="link" to={`/videos/${each.id}`}>
           <img
             src={each.thumbnailUrl}
-            alt="thumbnail url"
+            alt="video thumbnail"
             className="saved-img"
           />
           <div>
-            <SavedLogoTitle Light={Light}>{each.title}</SavedLogoTitle>
+            <p>{each.title}</p>
 
             <p className="p">{channel.name}</p>
             <p className="p">
@@ -155,10 +154,14 @@ class Trending extends Component {
             <>
               <Header />
 
-              <HomeBgContainer>
+              <TrendingBgContainer>
                 <NavBar />
-                <Homemain data-testid="trending">
-                  <HomePageContainer Light={isLightBackgroundTheme}>
+                <Trendingmain
+                  Light={isLightBackgroundTheme}
+                  data-testid="trending"
+                >
+                  <TrendingPageContainer Light={isLightBackgroundTheme}>
+                    <h1>Trending</h1>
                     <VideoStatusContainer>
                       {(() => {
                         switch (status) {
@@ -173,9 +176,9 @@ class Trending extends Component {
                         }
                       })()}
                     </VideoStatusContainer>
-                  </HomePageContainer>
-                </Homemain>
-              </HomeBgContainer>
+                  </TrendingPageContainer>
+                </Trendingmain>
+              </TrendingBgContainer>
             </>
           )
         }}

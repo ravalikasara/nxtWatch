@@ -1,23 +1,25 @@
 import styled from 'styled-components'
 
-export const HomeBgContainer = styled.div`
+export const GameBgContainer = styled.div`
   display: flex;
 `
 
-export const Homemain = styled.div`
+export const Gamemain = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: ${props => (props.Light ? '#f1f1f1' : '#0f0f0f')};
 `
 
 export const Logo = styled.img`
   height: 50px;
   width: 140px;
+  background-color: ${props => (props.Light ? '#f1f1f1' : '#0f0f0f')};
 `
 
-export const HomePageContainer = styled.div`
+export const GamePageContainer = styled.div`
   padding: 20px;
 
-  background-color: ${props => (props.Light ? '#f1f1f1' : '#181818')};
+  background-color: ${props => (props.Light ? '#f1f1f1' : '#0f0f0f')};
 `
 
 export const VideoStatusContainer = styled.div`
